@@ -76,7 +76,7 @@ dependencies {
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     // logging
-    implementation ("io.github.microutils:kotlin-logging-jvm:2.1.23")
+    implementation("io.github.microutils:kotlin-logging-jvm:2.1.23")
 }
 
 allOpen {
