@@ -1,0 +1,2 @@
+### test controller
+GET http://localhost:8080/test
