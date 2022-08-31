@@ -27,10 +27,8 @@ class LogAspect {
             result
         } finally {
             val end = System.currentTimeMillis()
-            logger.info("---------> Request: {} {} {}", request.method, request.requestURI, Arrays.toString(joinPoint.args),
-                )
+            logger.info("---------> Request: {} {} {}", request.method, request.requestURI, Arrays.toString(joinPoint.args))
             logger.info("---------> Response: {} {} ({}ms)", response?.status, result, end - start)
         }
     }
-
 }
