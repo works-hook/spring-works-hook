@@ -77,6 +77,9 @@ dependencies {
 
     // logging
     implementation("io.github.microutils:kotlin-logging-jvm:2.1.23")
+
+    // api
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
 }
 
 allOpen {

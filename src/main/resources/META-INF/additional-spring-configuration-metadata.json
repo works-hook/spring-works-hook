@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "slack.test.url",
+      "type": "java.lang.String",
+      "description": "Description for slack.test.url."
+  }
+] }
