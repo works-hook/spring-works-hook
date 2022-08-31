@@ -12,4 +12,6 @@ spring:
                 format_sql: true
         show-sql: true
 
-slack-test-url: https://hooks.slack.com/services/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
+slack:
+    test:
+        url: private

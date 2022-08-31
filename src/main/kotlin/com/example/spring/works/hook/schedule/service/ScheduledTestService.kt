@@ -13,8 +13,6 @@ class ScheduledTestService {
 
     @Scheduled(fixedDelay = 60_000) // 1분
     fun testScheduled() {
-        println(" > in scheduled")
         localApiCaller.testPrintNowDate()
     }
-
 }
