@@ -1,4 +1,7 @@
-package spring.works.hook.naverStock.dto.topSearch
+package spring.works.hook.naverStock.dto
+
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 data class TopSearchResponseDto(
     val nowVal: String?,
@@ -19,9 +22,11 @@ data class TopSearchResponseDto(
         }
 
         private fun firstSetting(stringBuilder: StringBuilder) {
+            val formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd, HH:mm:ss")
+            val nowDateFormat = LocalDateTime.now().format(formatter)
             stringBuilder.append("{\"attachments\":[{\"color\":\"#007A5A\",\"blocks\":[{\"type\":\"header\",\"text\":{\"type\":\"plain_text\",")
             stringBuilder.append("\"text\":\"\uD83D\uDE0E 현재 인기 종목은?\"}},{\"type\":\"context\",\"elements\":[")
-            stringBuilder.append("{\"text\":\"*November12,2019* | works hook\",\"type\":\"mrkdwn\"}]},{\"type\":\"divider\"},")
+            stringBuilder.append("{\"text\":\"*$nowDateFormat* | works hook\",\"type\":\"mrkdwn\"}]},{\"type\":\"divider\"},")
         }
 
         private fun middleSetting(responseListDto: MutableList<TopSearchResponseDto>, stringBuilder: StringBuilder) {

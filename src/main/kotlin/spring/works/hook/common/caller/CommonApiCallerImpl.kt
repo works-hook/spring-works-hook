@@ -11,12 +11,12 @@ import spring.works.hook.util.error.ErrorCode
 import spring.works.hook.util.error.MyException
 
 @Component
-class SlackApiCallerImpl : SlackApiCaller {
+class CommonApiCallerImpl : CommonApiCaller {
 
     @Autowired
     private lateinit var webClient: WebClient
 
-    override fun sendSlackBot(uri: String, data: Any) {
+    override fun sendApi(uri: String, data: Any) {
         webClient.post()
             .uri(uri)
             .accept(MediaType.ALL)

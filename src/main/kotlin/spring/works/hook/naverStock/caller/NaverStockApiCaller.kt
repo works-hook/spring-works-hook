@@ -1,6 +1,6 @@
 package spring.works.hook.naverStock.caller
 
-import spring.works.hook.naverStock.dto.topSearch.TopSearchResponseDto
+import spring.works.hook.naverStock.dto.TopSearchResponseDto
 
 interface NaverStockApiCaller {
 
