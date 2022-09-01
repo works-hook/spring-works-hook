@@ -70,6 +70,9 @@ dependencies {
     // JPA - JSON in MySQL, message converter
     implementation("com.vladmihalcea:hibernate-types-52:2.18.0")
 
+    // json parsing
+    implementation ("org.json:json:20190722")
+
     // querydsl
     implementation("com.querydsl:querydsl-jpa:5.0.0")
     kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
