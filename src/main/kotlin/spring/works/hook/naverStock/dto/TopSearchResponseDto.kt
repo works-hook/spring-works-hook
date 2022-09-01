@@ -1,5 +1,6 @@
 package spring.works.hook.naverStock.dto
 
+import java.text.DecimalFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -35,8 +36,8 @@ data class TopSearchResponseDto(
                 stringBuilder.append("\"type\": \"plain_text\",\"text\": \"${ responseDto.itemName }\"")
                 stringBuilder.append("},\"style\": \"primary\"}]},{\"type\":\"section\",\"fields\":[")
                 stringBuilder.append("{\"type\":\"mrkdwn\",\"text\": \"*종목 코드*\n`${ responseDto.itemCode }`\"")
-                stringBuilder.append("},{\"type\":\"mrkdwn\",\"text\":\"*현재가*\n`${ responseDto.nowVal }`\"")
-                stringBuilder.append("},{\"type\":\"mrkdwn\",\"text\":\"*전일비*\n`${ responseDto.changeVal }`\"")
+                stringBuilder.append("},{\"type\":\"mrkdwn\",\"text\":\"*현재가*\n`${ responseDto.nowVal.comma() }`\"")
+                stringBuilder.append("},{\"type\":\"mrkdwn\",\"text\":\"*전일비*\n`${ responseDto.changeVal.comma() }`\"")
                 stringBuilder.append("},{\"type\":\"mrkdwn\",\"text\":\"*등락률*\n`${ responseDto.changeRate }%`\"")
                 stringBuilder.append("}]},{\"type\":\"divider\"},")
             }
@@ -44,6 +45,11 @@ data class TopSearchResponseDto(
 
         private fun finalSetting(stringBuilder: StringBuilder) {
             stringBuilder.append("]}]}")
+        }
+
+        private fun String?.comma(): String {
+            val dec = DecimalFormat("###,###,###,###")
+            return dec.format(this?.toInt())
         }
     }
 }
