@@ -14,4 +14,9 @@ spring:
 
 slack:
     test:
-        url: private
+        url: https://hooks.slack.com/services/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
+
+naver:
+    top:
+        stock:
+            url: https://api.finance.naver.com/service/mainSummary.naver?_callback=window.__jindo2_callback._5987
