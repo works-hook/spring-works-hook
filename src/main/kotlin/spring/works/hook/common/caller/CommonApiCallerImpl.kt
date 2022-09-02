@@ -16,7 +16,7 @@ class CommonApiCallerImpl : CommonApiCaller {
     @Autowired
     private lateinit var webClient: WebClient
 
-    override fun sendApi(uri: String, data: Any) {
+    override fun sendApi(uri: String, data: String) {
         webClient.post()
             .uri(uri)
             .accept(MediaType.ALL)
