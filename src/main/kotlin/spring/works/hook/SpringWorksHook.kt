@@ -3,8 +3,8 @@ package spring.works.hook
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.scheduling.annotation.EnableScheduling
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RestController
 
 @EnableScheduling
 @SpringBootApplication
@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
     runApplication<SpringWorksHook>(*args)
 }
 
-@Controller
+@RestController
 class SpringWorksHookController {
 
     @GetMapping(value = ["/ping"], produces = ["application/json"])

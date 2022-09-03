@@ -49,7 +49,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-mustache")
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-security")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
@@ -71,7 +70,7 @@ dependencies {
     implementation("com.vladmihalcea:hibernate-types-52:2.18.0")
 
     // json parsing
-    implementation ("org.json:json:20190722")
+    implementation ("org.json:json:20220320")
 
     // querydsl
     implementation("com.querydsl:querydsl-jpa:5.0.0")
