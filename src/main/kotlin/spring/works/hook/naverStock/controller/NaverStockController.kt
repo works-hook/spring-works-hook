@@ -1,6 +1,5 @@
 package spring.works.hook.naverStock.controller
 
-import org.json.JSONObject
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -15,8 +14,7 @@ class NaverStockController {
     private lateinit var naverStockService: NaverStockService
 
     @PostMapping("/topSearchStock")
-    fun topSearchStock(): JSONObject {
-        val findTopStock = naverStockService.findTopStock()
-        return JSONObject(findTopStock)
+    fun topSearchStock(): String? {
+        return naverStockService.findTopStock()
     }
 }
