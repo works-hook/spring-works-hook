@@ -70,7 +70,7 @@ dependencies {
     implementation("com.vladmihalcea:hibernate-types-52:2.18.0")
 
     // json parsing
-    implementation ("org.json:json:20220320")
+    implementation("org.json:json:20220320")
 
     // querydsl
     implementation("com.querydsl:querydsl-jpa:5.0.0")

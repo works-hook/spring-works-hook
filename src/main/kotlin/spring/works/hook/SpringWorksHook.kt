@@ -23,5 +23,4 @@ class SpringWorksHookController {
             append("OK")
         }
     }
-
 }

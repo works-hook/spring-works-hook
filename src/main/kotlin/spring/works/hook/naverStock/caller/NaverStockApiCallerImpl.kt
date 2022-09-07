@@ -2,7 +2,6 @@ package spring.works.hook.naverStock.caller
 
 import org.json.JSONArray
 import org.json.JSONObject
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -15,13 +14,12 @@ import spring.works.hook.util.error.ErrorCode
 import spring.works.hook.util.error.MyException
 
 @Component
-class NaverStockApiCallerImpl : NaverStockApiCaller {
+class NaverStockApiCallerImpl(
+    private val webClient: WebClient
+) : NaverStockApiCaller {
 
     @Value("\${naver.top.stock.url}")
     private val NAVER_TOP_STOCK_URL: String = ""
-
-    @Autowired
-    private lateinit var webClient: WebClient
 
     override fun findTopSearchStock(): MutableList<TopSearchResponseDto>? {
         val resultString = webClient.get()
