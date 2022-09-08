@@ -1,6 +1,5 @@
 package spring.works.hook.common.caller
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
@@ -11,10 +10,9 @@ import spring.works.hook.util.error.ErrorCode
 import spring.works.hook.util.error.MyException
 
 @Component
-class CommonApiCallerImpl : CommonApiCaller {
-
-    @Autowired
-    private lateinit var webClient: WebClient
+class CommonApiCallerImpl(
+    private val webClient: WebClient
+) : CommonApiCaller {
 
     override fun sendApi(uri: String, data: String) {
         webClient.post()
