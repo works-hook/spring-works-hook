@@ -42,7 +42,7 @@ data class MarketMajorsResponseDto(
         }
 
         private fun finalSetting(stringBuilder: StringBuilder) {
-            stringBuilder.append( "\t]}")
+            stringBuilder.append("\t]}")
         }
 
         private fun getFluctuationsRatio(ratio: String?): String {

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.bodyToMono
 import reactor.core.publisher.Mono
+import spring.works.hook.naverStock.dto.ExchangeRateResponseDto
 import spring.works.hook.naverStock.dto.MarketMajorsResponseDto
 import spring.works.hook.naverStock.dto.TopSearchResponseDto
+import spring.works.hook.naverStock.service.getExchangeResult
 import spring.works.hook.naverStock.service.getMarketResult
 import spring.works.hook.naverStock.service.getTopSearchResult
 import spring.works.hook.util.error.ErrorCode
@@ -47,5 +49,17 @@ class NaverStockApiCallerImpl(
             .bodyToMono<String>()
             .block()
         return resultString.getMarketResult()
+    }
+
+    override fun findExchangeRate(): MutableList<ExchangeRateResponseDto>? {
+        val resultString = webClient.get()
+            .uri(M_NAVER_STOCK_MAIN)
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatus::is4xxClientError) { Mono.error(MyException(ErrorCode.CLIENT_API_CALLER)) }
+            .onStatus(HttpStatus::is5xxServerError) { Mono.error(MyException(ErrorCode.SERVER_API_CALLER)) }
+            .bodyToMono<String>()
+            .block()
+        return resultString.getExchangeResult()
     }
 }

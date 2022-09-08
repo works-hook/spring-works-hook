@@ -2,6 +2,7 @@ package spring.works.hook.naverStock.service
 
 import org.json.JSONArray
 import org.json.JSONObject
+import spring.works.hook.naverStock.dto.ExchangeRateResponseDto
 import spring.works.hook.naverStock.dto.MarketMajorsResponseDto
 import spring.works.hook.naverStock.dto.TopSearchResponseDto
 
@@ -58,3 +59,26 @@ val JSONObject.toSearchListDto: TopSearchResponseDto
             changeRate = this.get("changeRate") as String?,
         )
     }
+
+fun String?.getExchangeResult(): MutableList<ExchangeRateResponseDto>? {
+    val exchangeDto = JSONObject(this).getJSONArray("marketIndexInfos")
+    return getExchangeResult(exchangeDto)
+}
+
+fun getExchangeResult(exchangeDto: JSONArray): MutableList<ExchangeRateResponseDto> {
+    val result = mutableListOf<ExchangeRateResponseDto>()
+    for (exchange in exchangeDto) {
+        if (exchange is JSONObject) { result.add(exchange.exchangeDto) }
+    }
+    return result
+}
+
+val JSONObject.exchangeDto: ExchangeRateResponseDto
+    get() {
+        return ExchangeRateResponseDto(
+            name = this.get("name") as String?,
+            closePrice = this.get("closePrice") as String?,
+            fluctuationsRatio = this.get("fluctuationsRatio") as String?
+        )
+    }
+
