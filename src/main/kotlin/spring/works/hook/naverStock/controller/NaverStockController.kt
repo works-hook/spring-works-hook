@@ -20,4 +20,9 @@ class NaverStockController(
     fun market(): String? {
         return naverStockService.findMarket()
     }
+
+    @PostMapping("/exchange")
+    fun exchangeRate(): String? {
+        return naverStockService.findExchangeRate()
+    }
 }

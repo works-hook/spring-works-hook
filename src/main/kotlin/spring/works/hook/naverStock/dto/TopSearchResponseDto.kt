@@ -23,7 +23,7 @@ data class TopSearchResponseDto(
         }
 
         private fun firstSetting(stringBuilder: StringBuilder) {
-            val formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd, HH:mm:ss")
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm:ss")
             val nowDateFormat = LocalDateTime.now().format(formatter)
             stringBuilder.append("{\"attachments\":[{\"color\":\"#007A5A\",\"blocks\":[{\"type\":\"header\",\"text\":{\"type\":\"plain_text\",")
             stringBuilder.append("\"text\":\"\uD83D\uDE0E 현재 인기 종목은?\"}},{\"type\":\"context\",\"elements\":[")

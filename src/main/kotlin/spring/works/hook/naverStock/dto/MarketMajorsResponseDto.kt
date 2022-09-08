@@ -20,7 +20,7 @@ data class MarketMajorsResponseDto(
         }
 
         private fun firstSetting(stringBuilder: StringBuilder) {
-            val formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd, HH:mm:ss")
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm:ss")
             val nowDateFormat = LocalDateTime.now().format(formatter)
             stringBuilder.append("{\"blocks\": [{\"type\": \"header\",\"text\": {\"type\": \"plain_text\",\"text\": \"\uD83D\uDC7B 현재 증시는?\",")
             stringBuilder.append("\"emoji\": true}},{\"type\": \"context\",\"elements\": [{\"text\": \"*$nowDateFormat* | works hook\",\"type\": \"mrkdwn\"\n")
@@ -42,7 +42,7 @@ data class MarketMajorsResponseDto(
         }
 
         private fun finalSetting(stringBuilder: StringBuilder) {
-            stringBuilder.append( "\t]}")
+            stringBuilder.append("\t]}")
         }
 
         private fun getFluctuationsRatio(ratio: String?): String {
