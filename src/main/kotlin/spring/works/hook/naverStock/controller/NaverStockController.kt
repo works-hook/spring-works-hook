@@ -15,4 +15,9 @@ class NaverStockController(
     fun topSearchStock(): String? {
         return naverStockService.findTopStock()
     }
+
+    @PostMapping("/market")
+    fun market(): String? {
+        return naverStockService.findMarket()
+    }
 }

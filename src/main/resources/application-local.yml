@@ -24,5 +24,10 @@ naver:
         stock:
             url: https://api.finance.naver.com/service/mainSummary.naver?_callback=window.__jindo2_callback._5987
 
+m:
+    naver:
+        stock:
+            main: https://m.stock.naver.com/api/home/majors
+
 server:
     port: 8080
