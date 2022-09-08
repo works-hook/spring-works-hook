@@ -18,7 +18,7 @@ data class ExchangeRateResponseDto(
         }
 
         private fun firstSetting(stringBuilder: StringBuilder) {
-            val formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd, HH:mm:ss")
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm:ss")
             val nowDateFormat = LocalDateTime.now().format(formatter)
             stringBuilder.append("{\"blocks\": [{\"type\": \"header\",\"text\": {\"type\": \"plain_text\",\"text\": \"\uD83E\uDD16 현재 환율은?\",")
             stringBuilder.append("\"emoji\": true}},{\"type\": \"context\",\"elements\": [{\"text\": \"*$nowDateFormat* | works hook\",\"type\": \"mrkdwn\"\n")

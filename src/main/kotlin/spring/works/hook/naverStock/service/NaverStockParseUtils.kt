@@ -81,4 +81,3 @@ val JSONObject.exchangeDto: ExchangeRateResponseDto
             fluctuationsRatio = this.get("fluctuationsRatio") as String?
         )
     }
-
