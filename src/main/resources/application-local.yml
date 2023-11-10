@@ -15,10 +15,6 @@ spring:
         show-sql: true
 
 
-slack:
-    test:
-        url: https://hooks.slack.com/services/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
-
 naver:
     top:
         stock:
@@ -30,4 +26,4 @@ m:
             main: https://m.stock.naver.com/api/home/majors
 
 server:
-    port: 8080
+    port: 1203
